@@ -70,6 +70,21 @@ sudo pacman -S --needed base-devel cargo gtk4 mpv yt-dlp curl
    makepkg -si
    ```
 
+#### Nix/NixOS
+For Nix/NixOS, you can install it using the following methods:
+1. Quick start via `nix run`
+```bash
+nix run github:YATAVO/yaplayer
+```
+2. Installation via flakes
+```nix
+yaplayer = {
+  url = "github:YATAVO/yaplayer";
+  inputs.nixpkgs.follow = "nixpkgs";
+};
+```
+Requirement: `nix.settings.experimental-features = [ "nix-command" "flakes" ];`
+
 *(The `makepkg -si` command will automatically compile the release binary, package it alongside the desktop entry and documentation, and install it via `pacman`)*.
 
 ---
